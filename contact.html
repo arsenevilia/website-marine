@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact us — Maritor</title>
+  <meta name="description" content="Contact the Maritor Operations Desk, available 24/7/365.">
+  <link rel="canonical" href="https://maritorshipbrokers.com/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maritor">
+  <meta property="og:title" content="Contact us — Maritor">
+  <meta property="og:description" content="Contact the Maritor Operations Desk, available 24/7/365.">
+  <meta property="og:url" content="https://maritorshipbrokers.com/contact.html">
+  <meta property="og:image" content="https://maritorshipbrokers.com/assets/video/hero-poster.jpg">
+  <meta name="theme-color" content="#0f1f45">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Maritor — Home">
+        <img src="assets/img/logo-white.svg" alt="Maritor" width="115" height="52">
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="about.html">About us</a></li>
+          <li><a class="nav__link" href="services.html">Services</a></li>
+          <li><a class="nav__link" href="contact.html" aria-current="page">Contact us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="contact">
+      <div class="container contact__grid">
+        <div class="reveal">
+          <img class="contact__logo" src="assets/img/logo-blue.svg" alt="Maritor" width="260" height="118">
+          <h1 class="contact__title">Contact Us</h1>
+          <p class="contact__lead">Your trusted partner in your operations across the world&rsquo;s most challenging waters.</p>
+          <div class="ops-desk">
+            <span class="ops-desk__label">Operations Desk</span>
+            <p class="ops-desk__title">Contact Our Operations Desk</p>
+            <p class="ops-desk__meta"><span class="ops-desk__dot"></span>Available 24/7/365</p>
+          </div>
+        </div>
+
+        <div class="form-card reveal">
+          <h2>Send us a message</h2>
+          <p>Fields marked <span style="color:var(--brand)">*</span> are required.</p>
+          <form class="form" id="contactForm" action="contact.php" method="post" novalidate>
+            <div class="field">
+              <label for="f-name">Name <span class="req">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="100">
+              <span class="field__error">Please enter your name.</span>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone <span class="req">*</span></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="30" placeholder="+44 20 0000 0000">
+              <span class="field__error">Please enter a valid phone number.</span>
+            </div>
+            <div class="field field--full">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" maxlength="150">
+              <span class="field__error">Please enter a valid email address.</span>
+            </div>
+            <div class="field field--full">
+              <label for="f-service">Subject / Service Required <span class="req">*</span></label>
+              <select id="f-service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="chartering">Chartering Inquiry</option>
+                <option value="security">Maritime Security</option>
+                <option value="insurance">Marine Insurance</option>
+                <option value="general">General Inquiry</option>
+              </select>
+              <span class="field__error">Please choose a subject.</span>
+            </div>
+            <div class="field field--full">
+              <label for="f-message">Message <span class="req">*</span></label>
+              <textarea id="f-message" name="message" required maxlength="5000"></textarea>
+              <span class="field__error">Please write your message.</span>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="f-company">Company website</label>
+              <input id="f-company" name="company_website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="ts" id="f-ts" value="">
+            <div class="form-status" role="status" aria-live="polite"></div>
+            <div class="form__footer">
+              <p class="form__note">We never share your details with third parties.</p>
+              <button class="btn btn--primary" type="submit">Send message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="assets/img/logo-white.svg" alt="Maritor" width="170" height="77">
+          <p>Global Maritime Brokerage &amp; Protection.</p>
+        </div>
+        <div class="footer__col">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="services.html#brokerage">Brokerage &amp; Chartering</a></li>
+            <li><a href="services.html#security">Armed Maritime Security</a></li>
+            <li><a href="services.html#insurance">Marine Insurance &amp; War Risk</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; <span data-year>2026</span> Maritor. All rights reserved.</span>
+        <span>Operations Desk available 24/7/365</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=3" defer></script>
+</body>
+</html>
