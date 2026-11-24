@@ -78,7 +78,7 @@ $digits = preg_replace('/\D/', '', $phone);
 if (mb_strlen($name) < 2)                                                   respond(false, 'Please enter your name.', 422);
 if (!preg_match('/^[+\d\s().-]{6,30}$/', $phone) || strlen($digits) < 6 || strlen($digits) > 15)
                                                                             respond(false, 'Please enter a valid phone number.', 422);
-if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL))            respond(false, 'Please enter a valid email address.', 422);
+if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL))            respond(false, 'Please enter a valid email address.', 422);
 if (!isset($services[$service]))                                            respond(false, 'Please choose a subject.', 422);
 if (mb_strlen($message) < 5)                                                respond(false, 'Please write your message.', 422);
 

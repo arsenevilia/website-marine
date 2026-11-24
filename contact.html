@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -68,14 +68,14 @@
               <span class="field__error">Please enter a valid phone number.</span>
             </div>
             <div class="field field--full">
-              <label for="f-email">Email</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" maxlength="150">
+              <label for="f-email">Email <span class="req">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="150">
               <span class="field__error">Please enter a valid email address.</span>
             </div>
             <div class="field field--full">
               <label for="f-service">Subject / Service Required <span class="req">*</span></label>
               <select id="f-service" name="service" required>
-                <option value="" disabled selected>Select a service</option>
+                <option value="" disabled selected hidden>Select a service</option>
                 <option value="chartering">Chartering Inquiry</option>
                 <option value="security">Maritime Security</option>
                 <option value="insurance">Marine Insurance</option>
@@ -136,6 +136,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=3" defer></script>
+  <script src="assets/js/main.js?v=4" defer></script>
 </body>
 </html>

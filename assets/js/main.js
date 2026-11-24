@@ -74,7 +74,7 @@ try { if (!sessionStorage.getItem("maritorSessionStart")) sessionStorage.setItem
   var rules = {
     name: function (v) { return v.trim().length >= 2; },
     phone: function (v) { var d = v.replace(/\D/g, ""); return /^[+\d\s().-]{6,30}$/.test(v.trim()) && d.length >= 6 && d.length <= 15; },
-    email: function (v) { return v.trim() === "" || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); },
+    email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); },
     service: function (v) { return v !== ""; },
     message: function (v) { return v.trim().length >= 5; }
   };

@@ -718,3 +718,7 @@ main { display: block; }
   .fab { padding: 0; width: 56px; justify-content: center; right: 16px; bottom: 16px; }
   .modal__top, .modal__body { padding-left: 22px; padding-right: 22px; }
 }
+
+.page-hero__title--line { font-size: clamp(30px, 5.2vw, 68px); white-space: nowrap; }
+.page-hero__title--line span { font-weight: 300; opacity: .55; margin: 0 .2em; }
+@media (max-width: 560px) { .page-hero__title--line { white-space: normal; } }
