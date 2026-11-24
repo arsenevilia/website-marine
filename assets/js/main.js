@@ -29,10 +29,6 @@ try { if (!sessionStorage.getItem("maritorSessionStart")) sessionStorage.setItem
   var video = document.getElementById("heroVideo");
   if (video) {
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (window.innerWidth < 900 && video.dataset.srcMobile) {
-      video.src = video.dataset.srcMobile;
-      video.load();
-    }
     if (reduce) { video.removeAttribute("autoplay"); video.pause(); }
     else {
       var p = video.play();
