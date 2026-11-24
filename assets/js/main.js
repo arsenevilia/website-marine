@@ -135,7 +135,7 @@ try { if (!sessionStorage.getItem("maritorSessionStart")) sessionStorage.setItem
   if (!document.body.classList.contains("page-home")) return;
   var target = "services.html", busy = false, startY = null;
   function atBottom() { return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2; }
-  function go() { if (busy) return; busy = true; navigate(target); }
+  function go() { if (busy) return; busy = true; document.body.style.transition = "opacity .35s"; document.body.style.opacity = "0"; setTimeout(function () { location.href = target; }, 300); }
   window.addEventListener("wheel", function (e) { if (e.deltaY > 30 && atBottom()) go(); }, { passive: true });
   window.addEventListener("keydown", function (e) { if ((e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") && atBottom()) go(); });
   window.addEventListener("touchstart", function (e) { startY = e.touches[0].clientY; }, { passive: true });
@@ -216,28 +216,4 @@ try { if (!sessionStorage.getItem("maritorSessionStart")) sessionStorage.setItem
     var wait = Math.max(0, 120000 - (Date.now() - start));
     setTimeout(function () { if (!modal.classList.contains("is-open")) open(); }, wait);
   }
-})();
-
-
-/* ---------- Page transitions ---------- */
-var VT_NATIVE = "PageRevealEvent" in window;
-function navigate(href) {
-  if (VT_NATIVE) { location.href = href; return; }
-  document.body.classList.add("page-leaving");
-  setTimeout(function () { location.href = href; }, 550);
-}
-(function () {
-  if (VT_NATIVE) return;
-  document.body.classList.add("vt-fallback");
-  window.addEventListener("pageshow", function (e) { if (e.persisted) document.body.classList.remove("page-leaving"); });
-  document.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest("a[href]");
-    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
-    if (a.target && a.target !== "_self") return;
-    var u = new URL(a.href, location.href);
-    if (u.origin !== location.origin || (u.pathname === location.pathname && u.search === location.search)) return;
-    if (!/\.html$|\/$/.test(u.pathname)) return;
-    e.preventDefault();
-    navigate(a.href);
-  });
 })();
