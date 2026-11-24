@@ -733,3 +733,15 @@ main { display: block; }
 .page-hero__title--line { font-size: clamp(30px, 5.2vw, 68px); white-space: nowrap; }
 .page-hero__title--line span { font-weight: 300; opacity: .55; margin: 0 .2em; }
 @media (max-width: 560px) { .page-hero__title--line { white-space: normal; } }
+
+
+/* ==========================================================================
+   Hero video: two stacked players, seamless slow cross-dissolve at the loop point
+   ========================================================================== */
+.hero__video { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
+.hero__video .hero__media { position: absolute; inset: 0; z-index: auto; }
+.hero__media--b { opacity: 0; animation: none !important; transition: opacity var(--xfade, 3s) cubic-bezier(.45,0,.25,1); will-change: opacity; }
+@media (max-width: 860px) {
+  .hero__video { position: relative; inset: auto; z-index: 0; width: 100%; aspect-ratio: 16 / 9; }
+  .page-home .hero__video .hero__media { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; }
+}

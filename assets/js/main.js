@@ -25,14 +25,37 @@ try { if (!sessionStorage.getItem("maritorSessionStart")) sessionStorage.setItem
     });
   }
 
-  /* ---------- Hero video: lighter file on small screens, respect reduced motion ---------- */
-  var video = document.getElementById("heroVideo");
-  if (video) {
+  /* ---------- Hero video: two players, slow cross-dissolve at the loop point ---------- */
+  var vA = document.getElementById("heroVideo"), vB = document.getElementById("heroVideoB");
+  if (vA && vB) {
+    var XFADE = 3; // seconds, also --xfade in CSS
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) { video.removeAttribute("autoplay"); video.pause(); }
+    if (reduce) { vA.removeAttribute("autoplay"); vA.pause(); vA.setAttribute("loop", ""); vB.remove(); }
     else {
-      var p = video.play();
-      if (p && p.catch) p.catch(function () { /* autoplay blocked: poster stays */ });
+      var playing = vA, other = vB, fading = false;
+      var safe = function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+      safe(vA);
+      var restart = function (v) { try { v.currentTime = 0; } catch (e) {} safe(v); };
+      var tick = function () {
+        var d = playing.duration;
+        if (!fading && d && playing.currentTime >= d - XFADE) {
+          fading = true;
+          restart(other);
+          if (playing === vA) { vB.style.opacity = "1"; }        // B fades in over A
+          else { vB.style.opacity = "0"; }                        // B fades out, A plays below
+          var done = playing;
+          setTimeout(function () {
+            done.pause(); try { done.currentTime = 0; } catch (e) {}
+            playing = other; other = done; fading = false;
+          }, XFADE * 1000 + 200);
+        }
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      // safety net: if a player ends without a handoff (e.g. background tab), just restart it
+      [vA, vB].forEach(function (v) {
+        v.addEventListener("ended", function () { if (v === playing && !fading) restart(v); });
+      });
     }
   }
 
