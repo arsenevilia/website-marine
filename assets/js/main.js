@@ -30,11 +30,14 @@ try { if (!sessionStorage.getItem("maritorSessionStart")) sessionStorage.setItem
   if (vA && vB) {
     var XFADE = 3; // seconds, also --xfade in CSS
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) { vA.removeAttribute("autoplay"); vA.pause(); vA.setAttribute("loop", ""); vB.remove(); }
+    if (false) {}
     else {
       var playing = vA, other = vB, fading = false;
       var safe = function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
       safe(vA);
+      var kick = function () { if (playing.paused) safe(playing); };
+      ["touchstart","click","scroll"].forEach(function (ev) { window.addEventListener(ev, kick, { once: true, passive: true }); });
+      document.addEventListener("visibilitychange", function () { if (!document.hidden) kick(); });
       var restart = function (v) { try { v.currentTime = 0; } catch (e) {} safe(v); };
       var tick = function () {
         var d = playing.duration;
