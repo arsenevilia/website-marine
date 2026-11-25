@@ -754,3 +754,10 @@ main { display: block; }
   .page-hero__title--line span { display: block; height: 0; overflow: hidden; margin: 0; }
   .page-hero__content { text-align: center; margin-left: auto; margin-right: auto; }
 }
+@media (max-width: 860px) {
+  /* home: breathing room between video and headline */
+  .page-home .hero__content { padding-top: 44px; }
+  /* image heroes: copy centred vertically in the picture */
+  .page-hero { align-items: center; }
+  .page-hero__content { padding-top: calc(var(--header-h) + 24px); padding-bottom: 24px; }
+}
